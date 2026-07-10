@@ -9,8 +9,8 @@ public final class Constants {
     public static final class DriveConstants{
         public static final int kLEFTDRIVETALON = 10;
         public static final int kRIGHTDRIVETALON = 11;
-        public static final double kTHROTTLE = 0.50;
-
+        public static final double kTHROTTLE = 0.60;
+        public static final double KTURN_THROTTLE = .90;
         public static final boolean kISINVERTED = false;
     }
 

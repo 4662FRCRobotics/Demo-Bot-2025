@@ -25,7 +25,7 @@ public class Drive extends SubsystemBase {
   }
 
   public void arcadeDrive(double velocity, double heading){
-    m_DifferentialDrive.arcadeDrive(velocity * DriveConstants.kTHROTTLE, heading * DriveConstants.kTHROTTLE);
+    m_DifferentialDrive.arcadeDrive(velocity * DriveConstants.kTHROTTLE, heading * DriveConstants.KTURN_THROTTLE);
   }
 
   @Override
