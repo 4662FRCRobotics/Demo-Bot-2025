@@ -9,6 +9,8 @@ public final class Constants {
     public static final class DriveConstants{
         public static final int kLEFTDRIVETALON = 10;
         public static final int kRIGHTDRIVETALON = 11;
+        public static final int kLEFTDRIVETALONBACK = 12;
+        public static final int kRIGHTDRIVETALONBACK = 13;
         public static final double kTHROTTLE = 0.60;
         public static final double KTURN_THROTTLE = .90;
         public static final boolean kISINVERTED = false;
@@ -16,5 +18,10 @@ public final class Constants {
 
     public static final class ControllerConstants{
         public static final int kDRIVECONTROLLERPORT = 0;
+    }
+
+    public static final class BlowerConstants{
+        public static final int kBlower = 21;
+        public static final int kBlowerVoltage = 8;
     }
 }

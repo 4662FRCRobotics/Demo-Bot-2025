@@ -8,10 +8,12 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.ControllerConstants;
+import frc.robot.Subsystems.Blower;
 import frc.robot.Subsystems.Drive;
 
 public class RobotContainer {
   private final Drive m_Drive = new Drive();
+  private final Blower m_Blower = new Blower();
   private final CommandXboxController m_driverController = new CommandXboxController(ControllerConstants.kDRIVECONTROLLERPORT);
 
   public RobotContainer() {
@@ -19,11 +21,19 @@ public class RobotContainer {
       Commands.run(
         () -> m_Drive.arcadeDrive(m_driverController.getLeftY(), m_driverController.getRightX()),
         m_Drive));
+
+    m_Blower.setDefaultCommand(
+      m_Blower.stopBlower()
+    );
    
     configureBindings();
   }
 
-  private void configureBindings() {}
+  private void configureBindings() {
+    m_driverController.rightTrigger()
+      .toggleOnTrue(m_Blower.runBlower());
+      //later replace with toggle on true
+  }
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");

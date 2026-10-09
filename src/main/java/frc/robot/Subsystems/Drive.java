@@ -13,15 +13,23 @@ import frc.robot.Constants.DriveConstants;
 public class Drive extends SubsystemBase {
   private WPI_TalonSRX m_right;
   private WPI_TalonSRX m_left;
+  private WPI_TalonSRX m_right2;
+  private WPI_TalonSRX m_left2;
   private DifferentialDrive m_DifferentialDrive;
   
   /** Creates a new Drive. */
   public Drive() {
     m_right = new WPI_TalonSRX(DriveConstants.kRIGHTDRIVETALON);
     m_right.setInverted(DriveConstants.kISINVERTED);
+    m_right2 = new WPI_TalonSRX(DriveConstants.kRIGHTDRIVETALONBACK);
+    m_right2.setInverted(DriveConstants.kISINVERTED);
     m_left = new WPI_TalonSRX(DriveConstants.kLEFTDRIVETALON);
     m_left.setInverted(!DriveConstants.kISINVERTED);
+    m_left2 = new WPI_TalonSRX(DriveConstants.kLEFTDRIVETALONBACK);
+    m_left2.setInverted(!DriveConstants.kISINVERTED);
     m_DifferentialDrive = new DifferentialDrive(m_left, m_right);
+    m_right2.follow(m_right);
+    m_left2.follow(m_left);
   }
 
   public void arcadeDrive(double velocity, double heading){
