@@ -22,6 +22,6 @@ public final class Constants {
 
     public static final class BlowerConstants{
         public static final int kBlower = 21;
-        public static final int kBlowerVoltage = 8;
+        public static final int kBlowerVoltage = 9;
     }
 }
